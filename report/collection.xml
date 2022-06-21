@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <report id="financial_branch_report"
+                model="financial.repo.branch"
+                string="Financial Branch Report(PDF)"
+                report_type="qweb-pdf"
+                name="financial_repo_branch_wise.repo_financial"
+                file="financial_repo_branch_wise.repo_financial"/>
+
+    </data>
+</odoo>

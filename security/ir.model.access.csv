@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_financial_repo_branch,financial.repo.branch,model_financial_repo_branch,,1,1,1,1
+access_financial_repo_lines,financial.repo.lines,model_financial_repo_lines,,1,1,1,1

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="repo_financial">
+        <t t-call="web.html_container">
+            <div class="page">
+                <h2 style="font-style:oblique;font-weight:bold;">
+                </h2>
+
+                <table class="table" style="border:1px solid black;width:100%">
+                      <tr>
+                        <td colspan="7">
+                            <strong><center> <t t-esc="docs.branch_id.name"/> &amp;nbsp; Financial Report  &amp;nbsp;
+                            &amp;nbsp;from &amp;nbsp;
+                            <t t-esc="docs.from_date.strftime('%d-%m -%Y')"/> &amp;nbsp; To &amp;nbsp;
+                                <t t-esc="docs.to_date.strftime('%d-%m -%Y')"/></center></strong>
+                        </td>
+                    </tr>
+                    <t t-set="i" t-value="1"/>
+                    <t t-foreach="docs.financial_lines" t-as="o">
+                        <tr>
+                            <td style="border:1px solid black;">
+                                <center>
+                                    <t t-esc="o.source"/>
+                                </center>
+                            </td>
+                            <td style="border:1px solid black;text-align:right;">
+                                    <t t-esc="o.total_value"/>
+                            </td>
+                        </tr>
+                        <t t-set="i" t-value="i+1"/>
+                    </t>
+                </table>
+            </div>
+        </t>
+        <!--        </t>-->
+    </template>
+
+
+
+</odoo>

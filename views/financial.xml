@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="financial_repo_branch_tree" model="ir.ui.view">
+        <field name="name">financial.repo.branch.tree</field>
+        <field name="model">financial.repo.branch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="branch_id"/>
+                <field name="from_date"/>
+                <field name="to_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="financial_repo_branch_form" model="ir.ui.view">
+        <field name="name">financial.repo.branch.form</field>
+        <field name="model">financial.repo.branch</field>
+        <field name="arch" type="xml">
+            <form string="Bank Fee">
+                <header>
+                    <!--                                             <button type="object" string="Payment Done" states="draft" name="action_payment_done"-->
+                    <!--                                                class="btn btn-success"/>-->
+                    <!--                    <field name="state" widget="statusbar"-->
+                    <!--                           statusbar_visible="draft,confirm"/>-->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="from_date"/>
+                            <field name="to_date"/>
+
+
+                        </group>
+                        <group>
+                                                        <field name="branch_id"/>
+
+                                                        <field name="company_id" />
+                            <!--                             <field name="create_date" invisible="1"/>-->
+                            <!--                            <field name="user_id" invisible="1"/>-->
+                        </group>
+                    </group>
+
+
+                    <notebook>
+                        <page name="financial_lines" string="Bank Transfer"
+                        >
+                            <field name="financial_lines" colspan="4">
+                                <tree string="Financial" editable="bottom">
+                                    <field name="source" style="color:green;" />
+                                    <field name="total_value" style="color:red;"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_financial_repo_branch" model="ir.actions.act_window">
+        <field name="name">Financial Report Branch wise</field>
+        <field name="res_model">financial.repo.branch</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem name="Financial Report Branch wise" id="menu_financial_repo_branch"
+              action="action_financial_repo_branch" sequence="3"
+              parent="accounts_bankfee_statements.menu_bank_fee_statement"/>
+
+</odoo>
